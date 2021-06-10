@@ -1,6 +1,15 @@
 const tree: Node = {
   label: 'NFL',
-  color: 'red',
+  color: 'green',
   children: [
-    ]
-}
+    {
+      label: 'AFC',
+      color: 'blue',
+      children: [
+        {
+          label: 'East'
+        }
+      ]
+    }
+  ]
+};
