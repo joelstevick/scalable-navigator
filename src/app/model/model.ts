@@ -10,6 +10,15 @@ const tree: Node = {
           label: 'East'
         }
       ]
+    },
+    {
+      label: 'NFC',
+      color: 'orange',
+      children: [
+        {
+          label: 'East'
+        }
+      ]
     }
   ]
 };
