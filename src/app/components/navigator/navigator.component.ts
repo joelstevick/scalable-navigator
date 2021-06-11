@@ -56,6 +56,8 @@ export class NavigatorComponent implements OnInit {
 
   updateNewVertice() {
     this.updatePath();
+
+    this.updateChildren();
   }
 
   updatePath() {
