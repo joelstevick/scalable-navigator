@@ -21,5 +21,7 @@ export class NavigatorComponent implements OnInit {
     this.path = [this.root];
   }
 
-  clickedVertice(vertice: Vertice) {}
+  clickedVertice(vertice: Vertice) {
+    console.log(vertice)
+  }
 }

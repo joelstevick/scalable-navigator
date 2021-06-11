@@ -16,4 +16,8 @@ export class VerticeComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  onClick() {
+    this.clicked.emit(this.vertice);
+  }
 }
