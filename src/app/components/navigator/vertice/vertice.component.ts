@@ -2,13 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Vertice } from '../../../model/vertice.interface';
 
 @Component({
-  selector: 'app-path',
-  templateUrl: './path.component.html',
-  styleUrls: ['./path.component.css']
+  selector: 'app-vertice',
+  templateUrl: './vertice.component.html',
+  styleUrls: ['./vertice.component.css']
 })
-export class PathComponent implements OnInit {
+export class VerticeComponent implements OnInit {
   @Input()
-  vertices: Vertice[];
+  vertice: Vertice;
 
   constructor() {}
 

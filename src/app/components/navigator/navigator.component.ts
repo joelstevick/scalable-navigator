@@ -10,7 +10,11 @@ export class NavigatorComponent implements OnInit {
   @Input()
   root: Vertice;
 
+  children: Vertice[];
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.children = this.root.children;
+  }
 }

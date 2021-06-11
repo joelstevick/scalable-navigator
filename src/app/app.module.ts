@@ -7,6 +7,7 @@ import { HelloComponent } from './hello.component';
 import { NavigatorComponent } from './components/navigator/navigator.component';
 import { PathComponent } from './components/navigator/path/path.component';
 import { ChildrenComponent } from './components/navigator/children/children.component';
+import { VerticeComponent } from './components/navigator/vertice/vertice.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -15,7 +16,8 @@ import { ChildrenComponent } from './components/navigator/children/children.comp
     HelloComponent,
     NavigatorComponent,
     PathComponent,
-    ChildrenComponent
+    ChildrenComponent,
+    VerticeComponent
   ],
   bootstrap: [AppComponent]
 })

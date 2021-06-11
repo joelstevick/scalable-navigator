@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Vertice } from '../../../model/vertice.interface';
 
 @Component({
   selector: 'app-children',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./children.component.css']
 })
 export class ChildrenComponent implements OnInit {
+  @Input()
+  children: Vertice[];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
