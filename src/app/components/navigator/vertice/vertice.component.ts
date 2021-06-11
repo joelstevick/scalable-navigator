@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Vertice } from '../../../model/vertice.interface';
 
 @Component({
@@ -9,6 +9,9 @@ import { Vertice } from '../../../model/vertice.interface';
 export class VerticeComponent implements OnInit {
   @Input()
   vertice: Vertice;
+
+  @Output()
+  clicked = new EventEmitter<Vertice>();
 
   constructor() {}
 

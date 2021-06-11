@@ -17,4 +17,8 @@ export class NavigatorComponent implements OnInit {
   ngOnInit() {
     this.children = this.root.children;
   }
+
+  clickedVertice(vertice: Vertice) {
+    console.log(vertice);
+  }
 }

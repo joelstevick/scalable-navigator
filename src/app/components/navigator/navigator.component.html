@@ -1,2 +1,2 @@
-<app-path></app-path>
-<app-children [children]="root.children"></app-children>
+<app-path (clicked)="clickedVertice($event)"></app-path>
+<app-children [children]="root.children" (clicked)="clickedVertice($event)"></app-children>
