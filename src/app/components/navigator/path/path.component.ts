@@ -3,8 +3,10 @@ import {
   EventEmitter,
   HostListener,
   Input,
+  OnChanges,
   OnInit,
-  Output
+  Output,
+  SimpleChanges
 } from '@angular/core';
 import { Vertice } from '../../../model/vertice.interface';
 
@@ -13,7 +15,7 @@ import { Vertice } from '../../../model/vertice.interface';
   templateUrl: './path.component.html',
   styleUrls: ['./path.component.css']
 })
-export class PathComponent implements OnInit {
+export class PathComponent implements OnInit, OnChanges {
   @Input()
   vertices: Vertice[];
 
@@ -26,6 +28,11 @@ export class PathComponent implements OnInit {
   pattern = '';
 
   constructor() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.vertices) {
+      this.pattern = '';
+    }
+  }
 
   ngOnInit() {}
 
