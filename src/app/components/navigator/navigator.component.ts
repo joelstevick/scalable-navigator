@@ -17,11 +17,15 @@ export class NavigatorComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.children = this.root.children;
-    this.path = [this.root];
+    this.updateNewVertice(this.root);
   }
 
   clickedVertice(vertice: Vertice) {
-    console.log(vertice)
+    this.updateNewVertice(vertice);
+  }
+
+  updateNewVertice(vertice: Vertice) {
+    this.children = vertice.children || [];
+    this.path = [vertice];
   }
 }
