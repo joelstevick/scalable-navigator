@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { Vertice } from '../../../model/vertice.interface';
 
 @Component({
@@ -13,7 +20,16 @@ export class PathComponent implements OnInit {
   @Output()
   clicked = new EventEmitter<Vertice>();
 
+  @Output()
+  search = new EventEmitter<string>();
+
+  pattern = '';
+
   constructor() {}
 
   ngOnInit() {}
+
+  onSearch() {
+    this.search.emit(this.pattern);
+  }
 }

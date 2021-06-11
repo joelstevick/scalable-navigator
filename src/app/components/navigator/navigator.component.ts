@@ -67,4 +67,8 @@ export class NavigatorComponent implements OnInit {
 
     console.log(path);
   }
+
+  search(pattern: string) {
+    console.log(pattern);
+  }
 }

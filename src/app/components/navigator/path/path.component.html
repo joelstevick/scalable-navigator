@@ -1,6 +1,6 @@
 <div id="path">
   <div class="path-entry" *ngFor="let vertice of vertices; let last = last">
     <app-vertice [vertice]="vertice" (clicked)="clicked.emit($event)"></app-vertice>
-    <input *ngIf="last">
+    <input (keydown.enter)="onSearch()" *ngIf="last" [(ngModel)]="pattern">
   </div>
 </div>
