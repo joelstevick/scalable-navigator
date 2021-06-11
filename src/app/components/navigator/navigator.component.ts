@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Vertice } from '../../model/vertice.interface';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-navigator',
@@ -14,6 +15,8 @@ export class NavigatorComponent implements OnInit {
 
   path: Vertice[];
 
+  parentOf: any = {};
+
   constructor() {}
 
   ngOnInit() {
@@ -26,6 +29,11 @@ export class NavigatorComponent implements OnInit {
 
   updateNewVertice(vertice: Vertice) {
     this.children = vertice.children || [];
+
+    this.updatePath(vertice);
+  }
+
+  updatePath(vertice: Vertice) {
     this.path = [vertice];
   }
 }
