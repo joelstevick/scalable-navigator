@@ -2,7 +2,7 @@ import { Vertice } from './vertice.interface';
 
 export const tree: Vertice = {
   label: 'Walt Disney $550',
-  color: '#7d5a50',
+  color: 'lightgreen',
   children: [
     {
       label: 'Movies $250',
@@ -24,10 +24,11 @@ export const tree: Vertice = {
       children: [
         {
           label: 'DisneyWorld $200',
+          color: '#fcdec0',
           children: [
             {
               label: 'Rides $150',
-              color: '#fcdec0'
+              color: '#7d5a50'
             },
             {
               label: 'Concessions $50',
@@ -37,6 +38,7 @@ export const tree: Vertice = {
         },
         {
           label: 'DisneyLand $100',
+          color: '#7d5a50',
           children: [
             {
               label: 'Rides $75',
@@ -44,7 +46,7 @@ export const tree: Vertice = {
             },
             {
               label: 'Concessions $25',
-              color: '#fcdec0'
+              color: '#7d5a50'
             }
           ]
         }
