@@ -1,3 +1,6 @@
 <div id="children">
-  <app-vertice *ngFor="let vertice of children" [vertice]="vertice" (clicked)="clicked.emit($event)"></app-vertice>
+  <div class="child" *ngFor="let vertice of children">
+    <app-vertice [vertice]="vertice" (clicked)="clicked.emit($event)"></app-vertice>
+  </div>
+
 </div>

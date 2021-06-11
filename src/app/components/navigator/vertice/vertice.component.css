@@ -1,0 +1,6 @@
+.vertice {
+  display: inline-block;
+  border: 1px solid #cccccc;
+  padding: 3px;
+  border-radius: 3px;
+}
