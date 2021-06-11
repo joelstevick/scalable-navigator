@@ -33,10 +33,11 @@ export class NavigatorComponent implements OnInit {
   ngOnInit() {
     // map vertices to parents
     this.root.id = this.id++;
-    
+    const self = this;
+
     traverse(null, this.root, (p, v) => {
-      v.id = this.id++;
-      this.parentOf[v.id] = p;
+      v.id = self.id++;
+      self.parentOf[v.id] = p;
     });
 
     this.updateNewVertice(this.root);
@@ -53,13 +54,13 @@ export class NavigatorComponent implements OnInit {
   }
 
   updatePath(vertice: Vertice) {
-    const path: Vertice[] = [vertice];
+    const path: Vertice[] = [];
 
     let parent = vertice;
     while (parent) {
       path.unshift(parent);
 
-      vertice = this.parentOf[vertice.id];
+      parent = this.parentOf[parent.id];
     }
 
     this.path = path;
