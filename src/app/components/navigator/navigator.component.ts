@@ -12,13 +12,14 @@ export class NavigatorComponent implements OnInit {
 
   children: Vertice[];
 
+  path: Vertice[];
+
   constructor() {}
 
   ngOnInit() {
     this.children = this.root.children;
+    this.path = [this.root];
   }
 
-  clickedVertice(vertice: Vertice) {
-    console.log(vertice);
-  }
+  clickedVertice(vertice: Vertice) {}
 }
