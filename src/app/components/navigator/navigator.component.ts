@@ -1,6 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Vertice } from '../../model/vertice.interface';
-import * as _ from 'lodash';
+
+function traverse(parent: Vertice, vertice: Vertice, handler: (p, v) => void) {
+  handler(parent, vertice);
+
+  if (vertice.children && vertice.children.length > 0) {
+    vertice.children.forEach(c => {
+      traverse(vertice, c, handler);
+    });
+  }
+}
 
 @Component({
   selector: 'app-navigator',
@@ -17,9 +26,17 @@ export class NavigatorComponent implements OnInit {
 
   parentOf: any = {};
 
+  id = 1;
+
   constructor() {}
 
   ngOnInit() {
+    // map vertices to parents
+    traverse(null, this.root, (p, v) => {
+      v.id = this.id++;
+      this.parentOf[v.id] = p;
+    });
+
     this.updateNewVertice(this.root);
   }
 
@@ -34,6 +51,14 @@ export class NavigatorComponent implements OnInit {
   }
 
   updatePath(vertice: Vertice) {
-    this.path = [vertice];
+    const path: Vertice[] = [vertice];
+
+    while (this.parentOf[vertice.id]) {
+      path.unshift(this.path[vertice.id]);
+    }
+
+    this.path = path;
+
+    console.log(path);
   }
 }
