@@ -1,5 +1,6 @@
 <div id="path">
-  <div class="path-entry" *ngFor="let vertice of vertices">
+  <div class="path-entry" *ngFor="let vertice of vertices; let last = last">
     <app-vertice [vertice]="vertice" (clicked)="clicked.emit($event)"></app-vertice>
+    <input *ngIf="last">
   </div>
 </div>
