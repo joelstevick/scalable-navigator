@@ -20,6 +20,8 @@ export class NavigatorComponent implements OnInit {
   @Input()
   root: Vertice;
 
+  currentVertice: Vertice;
+
   children: Vertice[];
 
   path: Vertice[];
@@ -28,11 +30,14 @@ export class NavigatorComponent implements OnInit {
 
   id = 1;
 
+  pattern = '';
+
   constructor() {}
 
   ngOnInit() {
     // map vertices to parents
     this.root.id = this.id++;
+
     const self = this;
 
     traverse(null, this.root, (p, v) => {
@@ -40,23 +45,23 @@ export class NavigatorComponent implements OnInit {
       self.parentOf[v.id] = p;
     });
 
-    this.updateNewVertice(this.root);
+    this.clickedVertice(this.root);
   }
 
   clickedVertice(vertice: Vertice) {
-    this.updateNewVertice(vertice);
+    this.currentVertice = vertice;
+
+    this.updateNewVertice();
   }
 
-  updateNewVertice(vertice: Vertice) {
-    this.children = vertice.children || [];
-
-    this.updatePath(vertice);
+  updateNewVertice() {
+    this.updatePath();
   }
 
-  updatePath(vertice: Vertice) {
+  updatePath() {
     const path: Vertice[] = [];
 
-    let parent = vertice;
+    let parent = this.currentVertice;
     while (parent) {
       path.unshift(parent);
 
@@ -64,11 +69,26 @@ export class NavigatorComponent implements OnInit {
     }
 
     this.path = path;
-
-    console.log(path);
   }
 
+  updateChildren() {
+    const children = [];
+
+    if (this.pattern.trim().length > 0 && this.currentVertice.children) {
+      this.currentVertice.children.forEach(child => {
+        if (
+          child.label.toLowerCase().indexOf(this.pattern.toLowerCase()) >= 0
+        ) {
+          children.push(child);
+        }
+      });
+    }
+
+    this.children = children;
+  }
   search(pattern: string) {
-    console.log(pattern);
+    this.pattern = pattern;
+
+    this.updateChildren();
   }
 }
