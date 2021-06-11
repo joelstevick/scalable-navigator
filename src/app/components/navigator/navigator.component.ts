@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Vertice } from '../../model/vertice.interface';
 
 @Component({
   selector: 'app-navigator',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavigatorComponent implements OnInit {
   @Input()
-  root: Node;
+  root: Vertice;
 
   constructor() {}
 

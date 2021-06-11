@@ -1,4 +1,6 @@
-export const tree: Node = {
+import { Vertice } from './vertice.interface';
+
+export const tree: Vertice = {
   label: 'NFL',
   color: 'green',
   children: [
