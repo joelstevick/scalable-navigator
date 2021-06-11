@@ -1,4 +1,4 @@
-const tree: Node = {
+export const tree: Node = {
   label: 'NFL',
   color: 'green',
   children: [
