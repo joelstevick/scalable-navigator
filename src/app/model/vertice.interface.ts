@@ -1,5 +1,5 @@
 export interface Vertice {
-  id?: string;
+  id?: number;
   label: string;
   color?: string;
   children?: Vertice[];
