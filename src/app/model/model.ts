@@ -1,11 +1,11 @@
 import { Vertice } from './vertice.interface';
 
 export const tree: Vertice = {
-  label: 'Walt Disney',
+  label: 'Walt Disney $550',
   color: 'green',
   children: [
     {
-      label: 'Movies',
+      label: 'Movies $250',
       color: 'blue',
       children: [
         {
@@ -17,7 +17,7 @@ export const tree: Vertice = {
       ]
     },
     {
-      label: 'Theme Parks',
+      label: 'Theme Parks $300',
       color: 'orange',
       children: [
         {
