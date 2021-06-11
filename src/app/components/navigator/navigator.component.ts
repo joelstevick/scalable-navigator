@@ -64,6 +64,8 @@ export class NavigatorComponent implements OnInit {
     const path: Vertice[] = [];
 
     let parent = this.currentVertice;
+    this.pattern = '';
+
     while (parent) {
       path.unshift(parent);
 
@@ -75,11 +77,13 @@ export class NavigatorComponent implements OnInit {
 
   updateChildren() {
     const children = [];
+    const pattern = this.pattern.trim().toLowerCase();
 
     if (this.pattern.trim().length > 0 && this.currentVertice.children) {
       this.currentVertice.children.forEach(child => {
         if (
-          child.label.toLowerCase().indexOf(this.pattern.toLowerCase()) >= 0
+          pattern === '*' ||
+          child.label.toLowerCase().indexOf(pattern) >= 0
         ) {
           children.push(child);
         }
