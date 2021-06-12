@@ -2,7 +2,7 @@
   <div class="path-entry" *ngFor="let vertice of vertices; let last = last">
     <app-vertice [vertice]="vertice" (clicked)="clicked.emit($event)"></app-vertice>
     <ng-container *ngIf="last">
-      <input (keydown.enter)="onSearch()" [(ngModel)]="pattern">
+      <input (keydown.enter)="onSearch()" [(ngModel)]="pattern" placeholder="Search labels">
       (Press Enter to apply, duh)
     </ng-container>
   </div>
