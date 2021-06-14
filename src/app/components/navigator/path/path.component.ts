@@ -8,6 +8,7 @@ import {
   Output,
   SimpleChanges
 } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Vertice } from '../../../model/vertice.interface';
 
 @Component({
@@ -27,16 +28,27 @@ export class PathComponent implements OnInit, OnChanges {
 
   pattern = '';
 
-  constructor() {}
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder) {}
+
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.vertices) {
-      this.pattern = '';
+    if (changes.vertices && this.form) {
+      this.form.controls['pattern'].setValue('');
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.form = this.fb.group({
+      pattern: ['']
+    });
 
-  onSearch() {
-    this.search.emit(this.pattern);
+    this.form.valueChanges.subscribe(values => {
+      this.onSearch(values.pattern);
+    });
+  }
+
+  onSearch(pattern: string) {
+    this.search.emit(pattern);
   }
 }

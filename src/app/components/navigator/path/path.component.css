@@ -5,3 +5,7 @@
 input {
   margin-left: 8px;
 }
+
+form {
+  display: inline-block;
+}

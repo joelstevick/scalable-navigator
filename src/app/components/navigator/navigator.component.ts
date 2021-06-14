@@ -77,6 +77,7 @@ export class NavigatorComponent implements OnInit {
 
   updateChildren() {
     const children = [];
+
     const pattern = this.pattern.trim().toLowerCase();
 
     if (this.pattern.trim().length > 0 && this.currentVertice.children) {
